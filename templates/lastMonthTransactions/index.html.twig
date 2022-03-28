@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserTransactionsController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th>count</th>
+                <th>Name</th>
+                <th>Total Price( {{ currency }} )</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set count = 0 %}
+            {% for record in records %}
+            <tr>
+                <td>
+                    {% set count = count + 1 %}
+                    {{ count }}
+                </td>
+                <td>
+                    {{ record.name }}
+                </td>
+                <td>
+                    {{ record.price }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
